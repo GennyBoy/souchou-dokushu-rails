@@ -7,8 +7,24 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 30.times do |n|
+  # バリデーションエラーで失敗するようになったので後で確認
   Room.create!(
     name: "部屋番号: #{n}",
     number: 4
   )
+
+  Entry.create!(
+    user_name: "ユーザー名: #{n}",
+    reserved_date: Time.now,
+  )
 end
+
+Entry.create!(
+  user_name: "ユーザー名: 古い予約",
+  reserved_date: "2019-02-10".to_date,
+)
+
+Entry.create!(
+  user_name: "ユーザー名: 未来の予約",
+  reserved_date: "2024-02-10".to_date,
+)
