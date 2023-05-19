@@ -1,4 +1,5 @@
 class Room < ApplicationRecord
+  before_validation :remove_space
   validates :name,
     presence: { message: "会議名の入力は必須です" },
     length: { maximum: 30, message: "会議名は30文字以内で入力してください" },
@@ -16,5 +17,9 @@ class Room < ApplicationRecord
     unless self.number % 5 == 0
       errors.add(:number, "は5の倍数で入力してください")
     end
+  end
+
+  def remove_space
+    self.name.strip!.gsub!(/[ |　]+/, "_")
   end
 end
