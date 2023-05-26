@@ -1,4 +1,6 @@
 class Book < ApplicationRecord
+  has_many :rentals
+  has_many :users, through: :rentals
   scope :date_regist, ->(date) { where("created_at <= ?", date) }
 
   validates :title, presence: true
