@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_19_204252) do
+ActiveRecord::Schema.define(version: 2023_06_09_204555) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "prefecture"
+    t.string "city"
+    t.string "town"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "members", force: :cascade do |t|
     t.string "name"
@@ -32,6 +40,12 @@ ActiveRecord::Schema.define(version: 2023_05_19_204252) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_manager_id"], name: "index_projects_on_project_manager_id"
+  end
+
+  create_table "weathers", force: :cascade do |t|
+    t.integer "today_temp"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
