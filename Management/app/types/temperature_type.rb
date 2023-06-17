@@ -1,12 +1,29 @@
 class TemperatureType < ActiveRecord::Type::Value
 
-  def cast(temperature)
+  # データベース検索のメソッドを使用するため
+  def serialize(temp)
+    if temp && !temp.kind_of?(Numeric)
+      super(trans(temp))
+    else
+      super
+    end
+  end
+  def cast(temp)
+    if temp && !temp.kind_of?(Numeric)
+      super(trans(temp))
+    else
+      super
+    end
+  end
+
+  private
+  def trans(temperature)
     degree = temperature.degree
     unit = temperature.unit
     if unit == 'F'
-      super(degree = (degree - 32) / 1.8)
+      degree = (degree - 32) / 1.8
     else
-      super(degree)
+      degree = degree
     end
   end
 

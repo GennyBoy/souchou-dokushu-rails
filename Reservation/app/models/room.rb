@@ -1,4 +1,6 @@
 class Room < ApplicationRecord
+  has_many :entries
+
   before_validation :remove_space
   validates :name,
     presence: { message: "会議名の入力は必須です" },
