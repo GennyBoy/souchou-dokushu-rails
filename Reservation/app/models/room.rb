@@ -22,6 +22,6 @@ class Room < ApplicationRecord
   end
 
   def remove_space
-    self.name.strip!.gsub!(/[ |　]+/, "_")
+    self.name.strip.gsub(/[ |　]+/, "_")
   end
 end
