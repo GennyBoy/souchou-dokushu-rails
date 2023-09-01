@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :orders
   root to: 'rooms#index'
   get 'top/index'
   resources :rooms
