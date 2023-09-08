@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
-  USERS = { "admin_user" => "admin_password" }
-  before_action :authenticate
+  # USERS = { "admin_user" => "admin_password" }
+  # before_action :authenticate
 
   private
     def authenticate
