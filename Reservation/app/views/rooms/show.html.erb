@@ -15,5 +15,21 @@
   <%= @room.number %>
 </p>
 
+<p>予約一覧</p>
+<table>
+  <tr>
+    <th>予約者</th>
+    <th>メールアドレス</th>
+    <th>予約日</th>
+  </tr>
+  <% @entries.each do |entry| %>
+    <tr>
+      <td><%= entry.user_name %></td>
+      <td><%= entry.user_email %></td>
+      <td><%= entry.reserved_date %></td>
+    </tr>
+  <% end %>
+</table>
+
 <%= link_to 'Edit', edit_room_path(@room) %> |
 <%= link_to 'Back', rooms_path %>
