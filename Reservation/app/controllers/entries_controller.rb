@@ -3,6 +3,9 @@ class EntriesController < ApplicationController
 
   def new
     @entry = Entry.new
+    p '-' * 100
+    p params[:room_id]
+    p '-' * 100
   end
 
   def index
@@ -13,7 +16,7 @@ class EntriesController < ApplicationController
     @entry = Entry.new(entry_params)
 
     if @entry.save
-      redirect_to entry_url(@entry), notice: "Entry was successfully created."
+      redirect_to entry_url(@entry), notice: 'Entry was successfully created.'
     else
       render :new
     end
@@ -22,13 +25,13 @@ class EntriesController < ApplicationController
   def destroy
     @entry.destroy
 
-    redirect_to entries_url, notice: "Entry was successfully destroyed."
+    redirect_to entries_url, notice: 'Entry was successfully destroyed.'
   end
 
-  def confirm
-  end
+  def confirm; end
 
   private
+
   def set_entry
     @entry = Entry.find(params[:id])
   end
