@@ -28,7 +28,12 @@ class EntriesController < ApplicationController
     redirect_to room_path(@entry.room), notice: 'Entry was successfully destroyed.'
   end
 
-  def confirm; end
+  def confirm
+    @entry = Entry.new(entry_params) # room_idを指定したい
+    p '-' * 100
+    p params
+    p '-' * 100
+  end
 
   private
 
@@ -37,6 +42,9 @@ class EntriesController < ApplicationController
   end
 
   def entry_params
-    params.require(:entry).permit(:user_name, :user_email, :reserved_date, :usage_time, :room_id, :people)
+    params.tap do |o|
+      p '-' * 100
+      pp o
+    end.require(:entry).permit(:user_name, :user_email, :reserved_date, :usage_time, :room_id, :people)
   end
 end
