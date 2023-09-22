@@ -12,6 +12,12 @@ class EntriesController < ApplicationController
     @entries = Entry.all
   end
 
+  def confirm
+    p ?- * 100
+    pp params
+    p ?- * 100
+  end
+
   def create
     @entry = Entry.new(entry_params)
 
@@ -28,7 +34,7 @@ class EntriesController < ApplicationController
     redirect_to room_path(@entry.room), notice: 'Entry was successfully destroyed.'
   end
 
-  def confirm; end
+
 
   private
 
