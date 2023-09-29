@@ -14,7 +14,14 @@ class EntriesController < ApplicationController
 
   def create
     @entry = Entry.new(entry_params)
+    p '-' * 100
+    p params
+    p '-' * 100
 
+    if params[:back]
+      render :new
+      return
+    end
     if @entry.save
       redirect_to room_path(@entry.room), notice: 'Entry was successfully created.'
     else
@@ -30,6 +37,7 @@ class EntriesController < ApplicationController
 
   def confirm
     @entry = Entry.new(entry_params)
+    @entry.valid?
     p '-' * 100
     p params
     p '-' * 100

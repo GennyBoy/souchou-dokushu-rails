@@ -1,5 +1,17 @@
 <p id="notice"><%= notice %></p>
 
+  <% if @entry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
+
+      <ul>
+      <% @entry.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
 <p>
   <strong>User_name:</strong>
   <%= @entry.user_name %>
@@ -25,6 +37,13 @@
   <%= @entry.people %>
 </p>
 
-<%= form_with(model: @entry, local: true) do |form| %>
+<%= form_with(model: @entry, local: true, url: room_entries_path(@entry.room_id)) do |form| %>
+  <%= form.hidden_field :user_name %>
+  <%= form.hidden_field :user_email %>
+  <%= form.hidden_field :reserved_date %>
+  <%= form.hidden_field :usage_time %>
+  <%= form.hidden_field :people %>
+  <%= form.hidden_field :room_id %>
   <%= form.submit %>
+  <%= form.submit "戻る", name: "back" %>
 <% end %>
