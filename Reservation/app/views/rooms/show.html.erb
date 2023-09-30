@@ -31,7 +31,7 @@
     </tr>
   <% end %>
 </table>
-<%= link_to 'New', new_entry_path(room_id: @room.id) %>
+<%= link_to 'New', new_room_entry_path(room_id: @room.id) %>
 
 <%= link_to 'Edit', edit_room_path(@room) %> |
 <%= link_to 'Back', rooms_path %>
