@@ -31,8 +31,11 @@ class EntriesController < ApplicationController
 
   def destroy
     @entry.destroy
+    respond_to do |format|
+      format.js {head :no_content}
+    end
 
-    redirect_to room_path(@entry.room), notice: 'Entry was successfully destroyed.'
+    # redirect_to room_path(@entry.room), notice: 'Entry was successfully destroyed.'
   end
 
   def confirm
