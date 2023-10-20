@@ -27,7 +27,7 @@
       <td><%= entry.user_name %></td>
       <td><%= entry.user_email %></td>
       <td><%= entry.reserved_date %></td>
-      <td><%= link_to '予約解除', entry_path(entry), method: :delete %></td>
+      <td><%= link_to '予約解除', entry_path(entry), remote: true, method: :delete %></td>
     </tr>
   <% end %>
 </table>
