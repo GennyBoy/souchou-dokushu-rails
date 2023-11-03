@@ -32,7 +32,8 @@ class EntriesController < ApplicationController
   def destroy
     @entry.destroy
 
-    redirect_to room_path(@entry.room), notice: 'Entry was successfully destroyed.'
+    head :no_content
+    # redirect_to room_path(@entry.room), notice: 'Entry was successfully destroyed.'
   end
 
   def confirm
