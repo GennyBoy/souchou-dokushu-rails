@@ -22,6 +22,7 @@ class BooksController < ApplicationController
 
   # POST /books or /books.json
   def create
+    pp '＊＊＊＊＊＊＊＊＊＊＊'
     @book = Book.new(book_params)
     if @book.save
       redirect_to @book, notice: 'Book was sucessfully created.'
@@ -56,6 +57,7 @@ class BooksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book
+      pp 'setbook＊＊＊＊＊＊＊＊＊＊＊'
       @book = Book.find(params[:id])
     end
 
