@@ -1,0 +1,5 @@
+ja:
+  errors:
+    header:
+      one: " %{model} の登録で次のエラーが発生しました"
+      other: " %{model} の登録で%{count} 件のエラーが発生しました"
