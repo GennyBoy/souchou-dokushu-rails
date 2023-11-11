@@ -13,6 +13,10 @@
     <%= image_tag 'logo.png', width: 472, height: 213 %>
     <header>
       <p>背景を変更</p>
+      <%= l Time.now %><br>
+      <%= l Time.now, format: :default %><br>
+      <%= l Time.now, format: :long %><br>
+      <%= localize Time.now, format: :short %><br>
     </header>
     <%= yield %>
   </body>
