@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    models:
+      room: 部屋
+    attributes:
+      room:
+        name: 部屋名
