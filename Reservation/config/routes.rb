@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  # get 'auths/new'
+  # get 'auths/create'
+  # get 'auths/destroy'
+  resource :auths, only: %i[new create destroy]
   resources :users
   resources :orders
   root to: 'rooms#index'
