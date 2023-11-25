@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  # ●7個目でskip_before_actionを追加したがうまくいかないためコメントアウト
+  # skip_before_action :logged_in, only: %i[ new create ]
   before_action :set_user, only: %i[ show edit update destroy ]
 
   # GET /users or /users.json
