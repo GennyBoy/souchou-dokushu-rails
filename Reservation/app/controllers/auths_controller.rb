@@ -8,7 +8,7 @@ class AuthsController < ApplicationController
 
     if @auth.valid?
       user = User.find_by(email: params[:auth][:email])
-      if user && user.password == params[:auth][:password]
+      if user && BCrypt::Password.new(user.password) == params[:auth][:password]
         session[:user_id] = user.id
         redirect_to root_path
       else

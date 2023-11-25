@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
   # USERS = { "admin_user" => "admin_password" }
   # before_action :authenticate
-  # before_action :logged_in
   before_action :set_locale
+  # before_action :logged_in
 
   private
     # ログイン機能実装の為コメントアウト
