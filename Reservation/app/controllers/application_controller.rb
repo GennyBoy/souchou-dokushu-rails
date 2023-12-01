@@ -2,7 +2,8 @@ class ApplicationController < ActionController::Base
   # USERS = { "admin_user" => "admin_password" }
   # before_action :authenticate
   before_action :set_locale
-  # before_action :logged_in
+  before_action :logged_in
+  helper_method :current_user
 
   private
     # ログイン機能実装の為コメントアウト
@@ -20,5 +21,9 @@ class ApplicationController < ActionController::Base
       unless session[:user_id]
         redirect_to new_auths_path
       end
+    end
+
+    def current_user
+      @current_user ||= User.find(session[:user_id])
     end
 end
