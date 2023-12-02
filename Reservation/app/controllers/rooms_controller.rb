@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: %i[ show edit update destroy ]
+  before_action :redirect_to_root_if_not_admin, only: %i[ new create edit update destroy ]
 
   # GET /rooms or /rooms.json
   def index
@@ -68,5 +69,11 @@ class RoomsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def room_params
       params.require(:room).permit(:name, :place, :number)
+    end
+
+    def redirect_to_root_if_not_admin
+      if current_user.admin == false
+        return redirect_to root_path, notice: 'You are not authorized to access this page.'
+      end
     end
 end
