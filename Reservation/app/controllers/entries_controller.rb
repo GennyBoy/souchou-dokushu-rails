@@ -30,6 +30,10 @@ class EntriesController < ApplicationController
   end
 
   def destroy
+    entry_user = User.find_by(email: @entry.user_email)
+    if current_user.id != entry_user.id
+      return redirect_to room_path(@entry.room), notice: 'You are not authorized to access this page.'
+    end
     @entry.destroy
 
     head :no_content

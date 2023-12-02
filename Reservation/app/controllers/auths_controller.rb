@@ -1,4 +1,6 @@
 class AuthsController < ApplicationController
+  skip_before_action :logged_in, only: %i[ new create ]
+
   def new
     @auth = Auth.new
   end
