@@ -36,6 +36,7 @@
   <% end %>
 </table>
 <%= link_to 'New', new_room_entry_path(room_id: @room.id) %>
-
-<%= link_to 'Edit', edit_room_path(@room) %> |
+<% if current_user.admin %>
+  <%= link_to 'Edit', edit_room_path(@room) %>
+<% end %>
 <%= link_to 'Back', rooms_path %>
