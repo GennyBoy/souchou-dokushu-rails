@@ -9,8 +9,7 @@
 User.create!(
   name: "admin",
   email: "admin@example.com",
-  # 平文にしたらログインできた
-  # password: BCrypt::Password.create("admin"),
-  password: "admin",
+  password: BCrypt::Password.create("admin"),
   admin: true,
 )
+
