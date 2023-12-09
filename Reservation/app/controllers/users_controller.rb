@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   # POST /users or /users.json
   def create
     @user = User.new(user_params)
+    @user.password = BCrypt::Password.create(@user.password)
 
     respond_to do |format|
       if @user.save
