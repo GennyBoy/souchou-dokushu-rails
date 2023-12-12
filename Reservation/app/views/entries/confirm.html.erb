@@ -28,7 +28,6 @@
 </p>
 
 <%= form_with(model: @entry, local: true, url: room_entries_path(@entry.room_id)) do |form| %>
-  <%# hidden_field に user_id を追加 %>
   <%= form.hidden_field :user_id %>
   <%= form.hidden_field :reserved_date %>
   <%= form.hidden_field :usage_time %>
