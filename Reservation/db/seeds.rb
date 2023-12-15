@@ -9,8 +9,10 @@
 User.create!(
   name: "admin",
   email: "admin@example.com",
-  # 平文にしたらログインできた
-  # password: BCrypt::Password.create("admin"),
-  password: "admin",
+  password: BCrypt::Password.create("admin"),
   admin: true,
 )
+
+user = User.create!(name: "テストユーザー１", email: "test1@example.com", password: BCrypt::Password.create("test"), admin: false,)
+room = Room.create!(name: "テスト部屋#01", place: "東京", number: 10, terms_of_use: nil)
+Entry.create!(room_id: room.id, user_id: user.id, reserved_date: Time.now, usage_time: 3, people: 5)

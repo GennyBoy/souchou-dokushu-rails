@@ -24,11 +24,11 @@
   </tr>
   <% @entries.each do |entry| %>
     <tr>
-      <td><%= entry.user_name %></td>
-      <td><%= entry.user_email %></td>
+      <td><%= entry.user.name %></td>
+      <td><%= entry.user.email %></td>
       <td><%= entry.reserved_date %></td>
       <td>
-        <% if current_user.email == entry.user_email %>
+        <% if current_user.email == entry.user.email %>
           <%= link_to '予約解除', entry_path(entry), remote: true, method: :delete %>
         <% end %>
       </td>

@@ -2,7 +2,7 @@ class EntriesController < ApplicationController
   before_action :set_entry, only: :destroy
 
   def new
-    @entry = Entry.new(room_id: params[:room_id])
+    @entry = Entry.new(room_id: params[:room_id], user_id: current_user.id)
   end
 
   def index
@@ -24,8 +24,7 @@ class EntriesController < ApplicationController
   end
 
   def destroy
-    entry_user = User.find_by(email: @entry.user_email)
-    if current_user.id != entry_user.id
+    if current_user.id != @entry.user.id
       return redirect_to room_path(@entry.room), notice: 'You are not authorized to access this page.'
     end
     @entry.destroy
@@ -45,6 +44,6 @@ class EntriesController < ApplicationController
   end
 
   def entry_params
-    params.require(:entry).permit(:user_name, :user_email, :reserved_date, :usage_time, :room_id, :people)
+    params.require(:entry).permit(:reserved_date, :usage_time, :room_id, :people, :user_id)
   end
 end
