@@ -1,11 +1,13 @@
 class Book < ApplicationRecord
+  has_many_attached :images
+  has_one_attached :sample
   has_many :rentals
   has_many :users, through: :rentals
   has_many :pictures, as: :imageable
 
   scope :date_regist, ->(date) { where("created_at <= ?", date) }
 
-  validates :title, presence: true
+  validates :title, :images, presence: true
   validates :description, absence: true, unless: :title?
   validates :description, length: {maximum: 100}
 

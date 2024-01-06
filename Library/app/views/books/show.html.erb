@@ -6,6 +6,18 @@
 </p>
 
 <p>
+  <strong>Images:</strong>
+  <% @book.images.each do |image|%>
+    <%= image_tag image, class: "image" %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Sample:</strong>
+  <%= link_to "サンプル#{@book.sample.filename}", url_for(@book.sample) if @book.sample.attached? %>
+</p>
+
+<p>
   <strong>Description:</strong>
   <%= @book.description %>
 </p>
