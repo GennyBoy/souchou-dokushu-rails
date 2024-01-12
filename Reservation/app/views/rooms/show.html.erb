@@ -15,6 +15,13 @@
   <%= @room.number %>
 </p>
 
+<p>
+  <strong>Images:</strong>
+  <% @room.images.each do |image|  %>
+    <%= image_tag image, class: "image" %>
+  <% end %>
+</p>
+
 <p>予約一覧</p>
 <table>
   <tr>

@@ -68,7 +68,7 @@ class RoomsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def room_params
-      params.require(:room).permit(:name, :place, :number)
+      params.require(:room).permit(:name, :place, :number, images: [])
     end
 
     def redirect_to_root_if_not_admin
