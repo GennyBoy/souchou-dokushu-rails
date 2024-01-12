@@ -15,4 +15,6 @@ User.create!(
 
 user = User.create!(name: "テストユーザー１", email: "test1@example.com", password: BCrypt::Password.create("test"), admin: false,)
 room = Room.create!(name: "テスト部屋#01", place: "東京", number: 10, terms_of_use: nil)
+room.images.attach(io: File.open(Rails.root.join('app/assets/images/room01_1.png')), filename: 'room01_1.png')
+room.images.attach(io: File.open(Rails.root.join('app/assets/images/room01_2.png')), filename: 'room01_2.png')
 Entry.create!(room_id: room.id, user_id: user.id, reserved_date: Time.now, usage_time: 3, people: 5)
