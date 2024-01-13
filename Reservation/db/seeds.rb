@@ -18,3 +18,11 @@ room = Room.create!(name: "テスト部屋#01", place: "東京", number: 10, ter
 room.images.attach(io: File.open(Rails.root.join('app/assets/images/room01_1.png')), filename: 'room01_1.png')
 room.images.attach(io: File.open(Rails.root.join('app/assets/images/room01_2.png')), filename: 'room01_2.png')
 Entry.create!(room_id: room.id, user_id: user.id, reserved_date: Time.now, usage_time: 3, people: 5)
+
+room = Room.create!(name: "テスト部屋#02", place: "東京", number: 10, terms_of_use: nil)
+room.images.attach(io: File.open(Rails.root.join('app/assets/images/room01_1.png')), filename: 'room01_1.png')
+room.images.attach(io: File.open(Rails.root.join('app/assets/images/room01_2.png')), filename: 'room01_2.png')
+
+room = Room.create!(name: "テスト部屋#03", place: "東京", number: 10, terms_of_use: nil)
+room.images.attach(io: File.open(Rails.root.join('app/assets/images/room01_1.png')), filename: 'room01_1.png')
+room.images.attach(io: File.open(Rails.root.join('app/assets/images/room01_2.png')), filename: 'room01_2.png')

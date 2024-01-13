@@ -19,6 +19,11 @@
         <td><%= room.name %></td>
         <td><%= room.place %></td>
         <td><%= room.number %></td>
+        <td>
+          <% room.images.each do |image|  %>
+            <%= image_tag image, class: "image" %>
+          <% end %>
+        </td>
         <td><%= link_to 'Show', room %></td>
         <% if current_user.admin %>
           <td><%= link_to 'Edit', edit_room_path(room) %></td>
