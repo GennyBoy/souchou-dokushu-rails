@@ -1,5 +1,6 @@
 class Room < ApplicationRecord
   has_many :entries
+  has_many_attached :images, dependent: :destroy
 
   before_validation :remove_space
   validates :name,
