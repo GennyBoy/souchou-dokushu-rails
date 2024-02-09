@@ -1,11 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  place: MyString
-  number: 1
+room1:
+  name: 会議室 \#01
+  place: 東京
+  number: 10
 
-two:
-  name: MyString
-  place: MyString
-  number: 1
+room2:
+  name: 会議室 \#02
+  place: 大阪
+  number: 15
+
+room3:
+  name: 会議室 \#03
+  place: 福岡
+  number: 20

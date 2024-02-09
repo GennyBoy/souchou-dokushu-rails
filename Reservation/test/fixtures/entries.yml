@@ -1,17 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user_name: MyString
-  user_email: MyString
+entry1:
+  user: user1
   reserved_date: 2023-03-25 05:42:32
-  usage_time: 1.5
-  room_id: 1
-  people: 1
+  usage_time: 2
+  room_id: room2
+  people: 5
 
-two:
-  user_name: MyString
-  user_email: MyString
+entry2:
+  user: user2
   reserved_date: 2023-03-25 05:42:32
-  usage_time: 1.5
-  room_id: 1
-  people: 1
+  usage_time: 3
+  room_id: room3
+  people: 10

@@ -1,7 +1,8 @@
 <%= "最近登録の部屋、#{session[:room]}です。" if session[:room] %>
 <p id="notice"><%= notice %></p>
 
-<h1>Rooms</h1>
+<h1>予約管理のページへようこそ</h1>
+<p>本日のアクセス時間: <%= Time.now.strftime("%Y年%m月%d日%H時%M分") %></p>
 
 <table>
   <thead>
