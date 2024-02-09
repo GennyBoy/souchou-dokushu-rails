@@ -12,7 +12,7 @@ class RoomTest < ActiveSupport::TestCase
     room1 = rooms(:room1)
     room1.place = "横浜"
     room1.valid?
-    p room1.errors.messages
+    room1.errors.messages
     assert room1.errors.messages[:place].include?("は一覧にありません")
   end
 
