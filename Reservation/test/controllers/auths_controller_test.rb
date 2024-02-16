@@ -32,4 +32,9 @@ class AuthsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to new_auths_path
   end
 
+  test '未ログインで会議室一覧をクリックするとログイン画面にリダイレクト' do
+    get rooms_url
+    assert_redirected_to new_auths_path
+  end
+
 end
